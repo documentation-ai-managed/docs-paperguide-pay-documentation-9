@@ -1,0 +1,135 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to Paperguide-pay, including new features and bug fixes.
+---
+
+## Recent Updates
+
+Stay current with Paperguide-pay's evolution. You receive new features, performance boosts, and critical fixes in each release. Check the tags to identify impact: `feature` for additions, `bugfix` for corrections, `breaking` for changes requiring action, and `improvement` for enhancements.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added webhook support for real-time payment notifications. Configure your endpoint at `https://api.example.com/v1/webhooks`.
+- Introduced idempotency keys to prevent duplicate payments.
+
+## Improvements
+
+- Reduced API response times by `>30%` for high-volume merchants.
+- Enhanced dashboard analytics with export to CSV.
+
+## Bug Fixes
+
+- Fixed intermittent failures in refund processing.
+- Resolved token expiration issues during long sessions.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Support for Apple Pay and Google Pay in checkout flows.
+- Multi-currency payouts for international merchants.
+
+## Bug Fixes
+
+- Corrected validation errors for custom metadata fields.
+- Patched security vulnerability in token generation (CVE-2024-XXXX).
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Updated authentication to require JWT tokens instead of API keys. Migrate using the guide below.
+- Removed deprecated `payment/create` endpoint; use `charges/create` instead.
+
+## New Features
+
+- Core payment processing with PCI DSS compliance.
+- Merchant dashboard for transaction management.
+
+## Initial Release
+
+- Full API documentation and SDKs for JavaScript and Python.
+
+</Update>
+
+## Migration Guide
+
+Upgrade smoothly between versions. Follow these steps for the most common transitions.
+
+<Steps>
+  <Step title="Update Authentication" icon="shield">
+
+    Replace API keys with JWT tokens.
+
+    <CodeGroup tabs="JavaScript,Python">
+    ````javascript
+    // Old (v1.0.0)
+    const response = await fetch('https://api.example.com/v1/charges', {
+      headers: { 'Authorization': `Basic ${btoa('YOUR_API_KEY:')}` }
+    });
+
+    // New (v1.1.0+)
+    const token = await getJWTToken('your-client-id', 'your-secret');
+    const response = await fetch('https://api.example.com/v1/charges', {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    ````
+
+    ````python
+    import requests
+
+    # Old (v1.0.0)
+    response = requests.post('https://api.example.com/v1/charges',
+                             auth=('YOUR_API_KEY', ''))
+
+    # New (v1.1.0+)
+    token = get_jwt_token('your-client-id', 'your-secret')
+    response = requests.post('https://api.example.com/v1/charges',
+                             headers={'Authorization': f'Bearer {token}'})
+    ````
+    </CodeGroup>
+
+  </Step>
+  <Step title="Update Endpoint Paths" icon="link">
+
+    Change from `payment/create` to `charges/create`.
+
+    Test in sandbox: `https://api.example.com/v1/charges?amount=1000&currency=usd`.
+
+  </Step>
+  <Step title="Verify Webhooks" icon="zap">
+
+    Re-register webhook endpoints to receive new event types like `payment.refunded`.
+
+  </Step>
+</Steps>
+
+<Callout kind="alert">
+  Always test migrations in sandbox mode first. Backup your production webhooks before deploying.
+</Callout>
+
+## Upcoming Features
+
+Exciting enhancements arrive soon. Prioritize based on your needs.
+
+<Columns cols={3}>
+  <Card title="Subscription Billing" icon="calendar" href="#subscriptions">
+    Recurring payments with proration and trials.
+  </Card>
+  <Card title="Advanced Fraud Detection" icon="shield-check" href="#fraud">
+    ML-powered risk scoring integrated with your checkout.
+  </Card>
+  <Card title="Global Payouts" icon="globe" href="#payouts">
+    Instant transfers to 150+ countries.
+  </Card>
+</Columns>
+
+## How to Stay Updated
+
+Subscribe to our RSS feed or join the Discord community for release announcements. You access beta features via the dashboard at `https://dashboard.example.com/beta`. Report issues on GitHub.

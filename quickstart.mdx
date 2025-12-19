@@ -1,0 +1,142 @@
+---
+title: Getting Started with Paperguide-pay
+description: Set up your account and create your first documentation space in minutes to begin organizing your project docs.
+---
+
+## Overview
+
+Get started with Paperguide-pay in under 5 minutes. This guide walks you through account creation, your first documentation space, document uploads, and basic navigation. Paperguide-pay helps you organize project documentation with spaces, pages, and collaborative editing.
+
+<Callout kind="info">
+**Prerequisites:**
+- A modern browser (Chrome, Firefox, Safari)
+- An email address for registration
+- Optional: GitHub or Google account for social login
+</Callout>
+
+## Create Your Account
+
+Sign up quickly using email or social providers.
+
+<Steps>
+  <Step title="Visit the Dashboard" icon="monitor">
+    Navigate to `https://app.paperguide-pay.com` and click **Sign Up**.
+  </Step>
+  <Step title="Register" icon="user-plus">
+    Enter your email, create a password, or select **Continue with GitHub** / **Continue with Google**.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox and click the verification link.
+  </Step>
+  <Step title="Log In" icon="log-in">
+    Return to the dashboard, enter your credentials, and access your workspace.
+  </Step>
+</Steps>
+
+## Create Your First Documentation Space
+
+Organize docs by projects with dedicated spaces.
+
+<Steps>
+  <Step title="New Space" icon="plus">
+    Click **New Space** in the sidebar or dashboard.
+  </Step>
+  <Step title="Name It" icon="edit-3">
+    Enter a name like `My Project Docs` and select a color (e.g., #3B82F6).
+  </Step>
+  <Step title="Customize" icon="settings">
+    Add a description: "Central hub for project specifications and guides."
+  </Step>
+  <Step title="Save" icon="save">
+    Click **Create**. Your space appears in the sidebar.
+  </Step>
+</Steps>
+
+## Upload Your First Documents
+
+Add content via multiple methods.
+
+<Tabs>
+  <Tab title="Drag & Drop" icon="upload">
+    Open your space, drag files (PDF, MD, DOCX) from your desktop into the upload zone.
+
+    <Callout kind="tip">
+      Supports up to 50MB per file. Use folders for structure.
+    </Callout>
+  </Tab>
+  <Tab title="File Picker" icon="folder">
+    Click **Upload** > **Browse Files** and select documents.
+
+````markdown
+Supported formats:
+- Markdown (.md)
+- PDF
+- Images (.png, .jpg)
+````
+
+  </Tab>
+  <Tab title="URL Import" icon="globe">
+    Paste a public URL (e.g., GitHub README) in **Import from URL**.
+
+    Example: `https://raw.githubusercontent.com/user/repo/main/README.md`
+  </Tab>
+</Tabs>
+
+## Interface Tour
+
+Familiarize yourself with key areas.
+
+<Columns cols={3}>
+  <Card title="Sidebar" icon="menu" horizontal>
+    Switch spaces, create pages, and access settings.
+  </Card>
+  <Card title="Editor" icon="edit" horizontal>
+    Real-time Markdown/WYSIWYG editor with preview.
+  </Card>
+  <Card title="Search" icon="search" horizontal>
+    Global search across all spaces and pages.
+  </Card>
+</Columns>
+
+<Image
+  src="https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Dashboard+Screenshot"
+  alt="Paperguide-pay dashboard interface"
+  width="800"
+  height="400"
+/>
+
+## First Project Setup Tips
+
+<ExpandableGroup>
+  <Expandable title="Enable Version History" default-open="true">
+    Go to Space Settings > **Versioning** > Toggle on. Tracks all changes automatically.
+  </Expandable>
+  <Expandable title="Invite Collaborators">
+    Sidebar > **Members** > Add emails. Set roles: Admin, Editor, Viewer.
+  </Expandable>
+  <Expandable title="Embed Code Snippets">
+    Use the editor's code block for syntax highlighting.
+
+````javascript
+// Example project config
+const config = {
+  apiKey: 'YOUR_API_KEY',
+  endpoint: 'https://api.paperguide-pay.com/v1/docs'
+};
+````
+
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="success">
+  Ready? Create a new page in your space and start documenting. Next, explore [authentication](/authentication) for secure sharing.
+</Callout>
+
+<Columns cols={2}>
+  <Card title="Advanced Guides" icon="book-open" href="/guides">
+    Dive into templates and automation.
+  </Card>
+  <Card title="API Reference" icon="code" href="/api">
+    Integrate programmatically.
+  </Card>
+</Columns>
